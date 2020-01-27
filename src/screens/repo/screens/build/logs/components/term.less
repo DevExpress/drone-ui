@@ -3,13 +3,13 @@
 .term {
 	padding: 20px;
 	border-radius: 2px;
-	background: @gray-light;
+	background: #222222;
 
 	.exitcode {
 		margin-top: 10px;
 		padding: 0;
 		min-width: 20px;
-		color: rgba(0,0,0,.3);
+		color: #666;
 		user-select: none;
 		font-family:'Roboto Mono',monospace;
 		font-size: 13px;
@@ -21,7 +21,7 @@
 
 
 .line {
-	color: @gray-dark;
+	color: #f1f1f1;
 	line-height: 19px;
 	display: flex;
 	max-width:100%;
@@ -34,7 +34,7 @@
 	div:first-child {
 		padding-right: 20px;
 		min-width: 20px;
-		color: rgba(0,0,0,.3);
+		color: #666;
 		-webkit-user-select: none;
 		user-select: none;
 	}
@@ -48,7 +48,7 @@
 
 	div:last-child {
 		padding-left: 20px;
-		color: rgba(0,0,0,.3);
+		color: #666;
 		-webkit-user-select: none;
 		user-select: none;
 	}
@@ -58,15 +58,15 @@
 .loading {
 	padding: 20px;
 	border-radius: 2px;
-	background: @gray-light;
+	background: #222222;
 	font-family: 'Roboto Mono', monospace;
 	font-size: 13px;
 }
 
 // log error message
 .error {
-	background: @gray-light;
-	color: @red;
+	background: #222222;
+	color: #FF6C60;
 	padding: 20px;
 	border-radius:2px;
 	font-size: 14px;
@@ -76,35 +76,39 @@
 // ansi terminal color and background settings
 // DO NOT EDIT
 :global {
-	.ansi-bright-black-fg,   .ansi-black-fg   { color: #B3B3B3; }
-	.ansi-bright-red-fg,     .ansi-red-fg     { color: #fb9fb1; }
-	.ansi-bright-green-fg,   .ansi-green-fg   { color: #acc267; }
-	.ansi-bright-yellow-fg,  .ansi-yellow-fg  { color: #ddb26f; }
-	.ansi-bright-blue-fg,    .ansi-blue-fg    { color: #6fc2ef; }
-	.ansi-bright-magenta-fg, .ansi-magenta-fg { color: #e1a3ee; }
-	.ansi-bright-cyan-fg,    .ansi-cyan-fg    { color: #12cfc0; }
-	.ansi-bright-white-fg,   .ansi-white-fg   { color: #151515; }
+	.ansi-black-fg          { color: #4E4E4E; }
+	.ansi-red-fg            { color: #FF6C60; }
+	.ansi-green-fg          { color: #0A0; }
+	.ansi-yellow-fg         { color: #FFFFB6; }
+	.ansi-blue-fg           { color: #96CBFE; }
+	.ansi-magenta-fg        { color: #FF73FD; }
+	.ansi-cyan-fg           { color: #5FF; }
+	.ansi-white-fg          { color: #EEE; }
 
-	.ansi-bright-black-fg, .ansi-bright-red-fg, .ansi-bright-green-fg, .ansi-bright-yellow-fg,
-	.ansi-bright-blue-fg, .ansi-bright-magenta-fg, .ansi-bright-cyan-fg, .ansi-bright-white-fg {
-		font-weight: bold;
-	}
+	.ansi-bright-black-fg   { color: #7C7C7C; }
+	.ansi-bright-red-fg     { color: #FF9B93; }
+	.ansi-bright-green-fg   { color: #B1FD79; }
+	.ansi-bright-yellow-fg  { color: #FFFF91; }
+	.ansi-bright-blue-fg    { color: #B5DCFE; }
+	.ansi-bright-magenta-fg { color: #FF9CFE; }
+	.ansi-bright-cyan-fg    { color: #5FF; }
+	.ansi-bright-white-fg   { color: #FFF; }
 
-	.ansi-black-bg { background-color: #d0d0d0; }
-	.ansi-red-bg { background-color: #fb9fb1; }
-	.ansi-green-bg { background-color: #acc267; }
-	.ansi-yellow-bg { background-color: #ddb26f;}
-	.ansi-blue-bg { background-color: #6fc2ef; }
-	.ansi-magenta-bg { background-color: #e1a3ee;}
-	.ansi-cyan-bg { background-color: #12cfc0; }
-	.ansi-white-bg { background-color: #151515; }
+	.ansi-black-bg          { background-color: #4E4E4E; }
+	.ansi-red-bg            { background-color: #FF6C60; }
+	.ansi-green-bg          { background-color: #0A0; }
+	.ansi-yellow-bg         { background-color: #FFFFB6; }
+	.ansi-blue-bg           { background-color: #96CBFE; }
+	.ansi-magenta-bg        { background-color: #FF73FD; }
+	.ansi-cyan-bg           { background-color: #0AA; }
+	.ansi-white-bg          { background-color: #EEE; }
 
-	.ansi-bright-black-bg { background-color: #f5f5f5; }
-	.ansi-bright-red-bg { background-color: #fb9fb1; }
-	.ansi-bright-green-bg {background-color: #acc267;}
-	.ansi-bright-yellow-bg {background-color: #ddb26f;}
-	.ansi-bright-blue-bg {background-color: #6fc2ef;}
-	.ansi-bright-magenta-bg {background-color: #e1a3ee;}
-	.ansi-bright-cyan-bg {background-color: #12cfc0; }
-	.ansi-bright-white-bg { background-color: #505050; }
+	.ansi-bright-black-bg   { background-color: #4E4E4E; }
+	.ansi-bright-red-bg     { background-color: #FF6C60; }
+	.ansi-bright-green-bg   { background-color: #0A0; }
+	.ansi-bright-yellow-bg  { background-color: #FFFFB6; }
+	.ansi-bright-blue-bg    { background-color: #96CBFE; }
+	.ansi-bright-magenta-bg { background-color: #FF73FD; }
+	.ansi-bright-cyan-bg    { background-color: #0AA; }
+	.ansi-bright-white-bg   { background-color: #EEE; }
 }
