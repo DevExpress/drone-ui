@@ -185,3 +185,7 @@ export const assertBuildFinished = build => {
 export const assertBuildMatrix = build => {
 	return build && build.procs && build.procs.length > 1;
 };
+
+export const firstMessageLine = build => {
+	return String(build.message).match(/^[^\r\n]+/)[0];
+};

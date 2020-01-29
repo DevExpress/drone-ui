@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import BuildMeta from "shared/components/build_event";
 import BuildTime from "shared/components/build_time";
 import { StatusLabel } from "shared/components/status";
+import { firstMessageLine } from "shared/utils/build";
 
 import styles from "./details.less";
 
@@ -14,7 +15,7 @@ export class Details extends Component {
 			<div className={styles.info}>
 				<StatusLabel status={build.status} />
 
-				<section className={styles.message}>{build.message}</section>
+				<section className={styles.message}>{firstMessageLine(build)}</section>
 
 				<section>
 					<BuildTime

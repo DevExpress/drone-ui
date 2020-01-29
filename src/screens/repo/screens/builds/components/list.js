@@ -4,6 +4,7 @@ import Status from "shared/components/status";
 import StatusNumber from "shared/components/status_number";
 import BuildTime from "shared/components/build_time";
 import BuildMeta from "shared/components/build_event";
+import { firstMessageLine } from "shared/utils/build";
 
 import styles from "./list.less";
 
@@ -21,7 +22,7 @@ export class Item extends Component {
 				</div>
 
 				<div className={styles.body}>
-					<h3>{build.message}</h3>
+					<h3>{firstMessageLine(build)}</h3>
 				</div>
 
 				<div className={styles.meta}>
