@@ -33,7 +33,7 @@ module.exports = {
 	output: {
 		publicPath: "/",
 		path: path.join(__dirname, "dist/files"),
-		filename: "static/bundle.[chunkhash].js"
+		filename: "static/bundle.custom.js"
 	},
 
 	resolve: {
@@ -84,7 +84,7 @@ module.exports = {
 	plugins: [
 		new webpack.optimize.CommonsChunkPlugin({
 			name: "vendor",
-			filename: "static/vendor.[hash].js"
+			filename: "static/vendor.custom.js"
 		}),
 		new HtmlWebpackPlugin({
 			favicon: "src/public/favicon.png",
