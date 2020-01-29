@@ -90,8 +90,11 @@ export const cancelBuild = (tree, client, owner, repo, build, proc) => {
 		.then(result => {
 			displayMessage(tree, "Successfully cancelled your build");
 		})
-		.catch(() => {
-			displayMessage(tree, "Failed to cancel your build");
+		.catch(result => {
+			displayMessage(
+				tree,
+				(result && result.message) || "Failed to cancel your build",
+			);
 		});
 };
 

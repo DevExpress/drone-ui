@@ -2,12 +2,7 @@ import React, { Component } from "react";
 import RepoMenu from "../builds/menu";
 import { RefreshIcon, CloseIcon } from "shared/components/icons";
 
-import {
-	cancelBuild,
-	restartBuild,
-	assertBuildMatrix,
-} from "shared/utils/build";
-import { findChildProcess } from "shared/utils/proc";
+import { cancelBuild, restartBuild } from "shared/utils/build";
 import { repositorySlug } from "shared/utils/repository";
 
 import { branch } from "baobab-react/higher-order";
@@ -40,7 +35,28 @@ export default class BuildMenu extends Component {
 
 	handleCancel() {
 		const { dispatch, drone, repo, build, match } = this.props;
-		const proc = findChildProcess(build.procs, match.params.proc || 2);
+
+		function findProcPidToCancel() {
+			const childPid = Number(match.params.proc);
+
+			for (const proc of build.procs) {
+				for (const child of proc.children) {
+					if (childPid) {
+						if (child.pid === childPid) {
+							return proc.pid;
+						}
+					} else {
+						if (child.state === "running" || child.state === "pending") {
+							// Return pid of any active proc, Scaler will terminate others
+							// https://github.com/DevExpress/devextreme-ci-aws/commit/a2a4aea136aaf912acee1984a460c79ba58709a5
+							return proc.pid;
+						}
+					}
+				}
+			}
+
+			return 0;
+		}
 
 		dispatch(
 			cancelBuild,
@@ -48,15 +64,13 @@ export default class BuildMenu extends Component {
 			repo.owner,
 			repo.name,
 			build.number,
-			proc.ppid,
+			findProcPidToCancel(),
 		);
 	}
 
 	render() {
-		const { build, match } = this.props;
-		const { proc } = match.params;
-
-		const hideCancel = assertBuildMatrix(build) && !proc;
+		const { build } = this.props;
+		const hideCancel = false;
 
 		return (
 			<div>
