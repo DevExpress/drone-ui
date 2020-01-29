@@ -84,9 +84,8 @@ export default class BuildMenu extends Component {
 							<li>
 								{build.status === "pending" ||
 								build.status === "running" ? !hideCancel ? (
-									<button onClick={this.handleCancel}>
-										<CloseIcon />
-										<span>Cancel</span>
+									<button onClick={this.handleCancel} style="color: #fc4758">
+										<span>🚫 Cancel Build</span>
 									</button>
 								) : null : (
 									<button onClick={this.handleRestart}>
