@@ -34,6 +34,8 @@ export default class BuildMenu extends Component {
 	}
 
 	handleCancel() {
+		if (!confirm("Sure?")) return;
+
 		const { dispatch, drone, repo, build, match } = this.props;
 
 		function findProcPidToCancel() {
