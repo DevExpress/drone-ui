@@ -4,18 +4,25 @@ import BuildMeta from "shared/components/build_event";
 import BuildTime from "shared/components/build_time";
 import { StatusLabel } from "shared/components/status";
 import { firstMessageLine } from "shared/utils/build";
+import EnvironLines from "./environ_lines";
 
 import styles from "./details.less";
 
 export class Details extends Component {
 	render() {
-		const { build } = this.props;
+		const { build, environ } = this.props;
 
 		return (
 			<div className={styles.info}>
 				<StatusLabel status={build.status} />
 
 				<section className={styles.message}>{firstMessageLine(build)}</section>
+
+				{environ && (
+					<section>
+						<EnvironLines environ={environ} />
+					</section>
+				)}
 
 				<section>
 					<BuildTime

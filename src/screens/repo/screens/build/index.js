@@ -200,7 +200,7 @@ export default class BuildLogs extends Component {
 			<div className={styles.host}>
 				<div className={styles.columns}>
 					<div className={styles.right}>
-						<Details build={data} />
+						<Details build={data} environ={parent.environ} />
 						<section className={styles.sticky}>
 							<ProcList>
 								{parent.children.map(function(child) {

@@ -3,6 +3,7 @@ import React from "react";
 import Status from "shared/components/status";
 import StatusNumber from "shared/components/status_number";
 import BuildTime from "shared/components/build_time";
+import EnvironLines from "./environ_lines";
 
 import styles from "./matrix.less";
 
@@ -13,7 +14,7 @@ export const MatrixList = ({ children }) => (
 export const MatrixItem = ({ environ, start, finish, status, number }) => (
 	<div className={styles.item}>
 		<div className={styles.header}>
-			{Object.entries(environ).map(renderEnviron)}
+			<EnvironLines environ={environ} />
 		</div>
 		<div className={styles.body}>
 			<BuildTime start={start} finish={finish} />
@@ -24,11 +25,3 @@ export const MatrixItem = ({ environ, start, finish, status, number }) => (
 		</div>
 	</div>
 );
-
-const renderEnviron = data => {
-	return (
-		<div>
-			{data[0]}={data[1]}
-		</div>
-	);
-};
