@@ -252,7 +252,7 @@ export default class BuildLogs extends Component {
 		function pidForLink(children) {
 			for (let i = children.length - 1; i >= 0; i--) {
 				const ch = children[i];
-				if (ch.state !== "skipped") return ch.pid;
+				if (ch.state !== "skipped" && ch.state !== "pending") return ch.pid;
 			}
 			return children[0].pid;
 		}
