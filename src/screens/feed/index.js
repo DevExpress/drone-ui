@@ -33,7 +33,7 @@ export default class Sidebar extends Component {
 
 	handleFilter(e) {
 		this.setState({
-			filter: e.target.value,
+			filter: e.target.value.toLowerCase(),
 		});
 	}
 
@@ -44,7 +44,7 @@ export default class Sidebar extends Component {
 		const list = feed.data ? Object.values(feed.data) : [];
 
 		const filterFunc = item => {
-			return !filter || item.full_name.indexOf(filter) !== -1;
+			return !filter || item.full_name.toLowerCase().indexOf(filter) !== -1;
 		};
 
 		const filtered = list.filter(filterFunc).sort(compareFeedItem);
