@@ -249,6 +249,14 @@ export default class BuildLogs extends Component {
 			return this.renderSimple();
 		}
 
+		function pidForLink(children) {
+			for (let i = children.length - 1; i >= 0; i--) {
+				const ch = children[i];
+				if (ch.state !== "skipped") return ch.pid;
+			}
+			return children[0].pid;
+		}
+
 		return (
 			<div className={styles.host}>
 				<div className={styles.columns}>
@@ -258,12 +266,11 @@ export default class BuildLogs extends Component {
 					<div className={styles.left}>
 						<MatrixList>
 							{build.procs.map(proc => {
+								const pid = pidForLink(proc.children);
 								return (
 									<Link
-										to={`/${repo.full_name}/${build.number}/${proc.children[0]
-											.pid}`}
-										key={`${repo.full_name}-${build.number}-${proc.children[0]
-											.pid}`}
+										to={`/${repo.full_name}/${build.number}/${pid}`}
+										key={`${repo.full_name}-${build.number}-${pid}`}
 									>
 										<MatrixItem
 											number={proc.pid}
