@@ -257,20 +257,20 @@ export default class BuildLogs extends Component {
 					</div>
 					<div className={styles.left}>
 						<MatrixList>
-							{build.procs.map(child => {
+							{build.procs.map(proc => {
 								return (
 									<Link
-										to={`/${repo.full_name}/${build.number}/${child.children[0]
+										to={`/${repo.full_name}/${build.number}/${proc.children[0]
 											.pid}`}
-										key={`${repo.full_name}-${build.number}-${child.children[0]
+										key={`${repo.full_name}-${build.number}-${proc.children[0]
 											.pid}`}
 									>
 										<MatrixItem
-											number={child.pid}
-											start={child.start_time}
-											finish={child.end_time}
-											status={child.state}
-											environ={child.environ}
+											number={proc.pid}
+											start={proc.start_time}
+											finish={proc.end_time}
+											status={proc.state}
+											environ={proc.environ}
 										/>
 									</Link>
 								);
